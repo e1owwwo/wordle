@@ -1,0 +1,118 @@
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #f3f2e3;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 2.5em;
+  color: #5a4d41;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+#game-board div {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #d1c3a8;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: pop 0.3s ease-in-out;
+}
+
+/* Анимация появления */
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#guess-input {
+  width: 300px;
+  height: 40px;
+  font-size: 1.2em;
+  margin: 10px auto;
+  border: 2px solid #d1c3a8;
+  border-radius: 5px;
+  padding: 5px;
+  transition: border 0.3s;
+}
+
+#guess-input:focus {
+  border-color: #a4a2e0;
+}
+
+#submit-btn, #reset-btn {
+  background-color: #5a4d41;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#submit-btn:hover, #reset-btn:hover {
+  background-color: #7b654f;
+  transform: scale(1.05);
+}
+
+.correct {
+  background-color: #58a05d;
+  color: green;
+}
+
+.partial {
+  background-color: #cfa75d;
+  color: yellow;
+}
+
+.wrong {
+  background-color: #928e8a;
+  color: red;
+}
+
+button:disabled {
+  background-color: #d1c3a8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Стили для подсказок */
+#guess-input::placeholder {
+  color: #8b8b8b;
+}
+
+#submit-btn, #reset-btn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
